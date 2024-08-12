@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+  <script src="/vue.global.js"></script>
+
+  <div id="app">
+    <p>message={{ message }}</p>
+    <p>count={{ count }}</p>
+    <button @click="increase">Increase</button>
+    <button @click="decrease">Decrease</button>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const message = ref('Hello vue!')
+        return {
+          message
+        }
+      },
+      data() {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increase() {
+          this.count++
+        },
+        decrease() {
+          this.count--
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
